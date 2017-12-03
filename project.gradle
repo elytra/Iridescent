@@ -39,11 +39,16 @@ repositories {
 		name = 'chickenbones'
 		url = 'http://chickenbones.net/maven/'
 	}
+	ivy {
+		artifactPattern "https://unascribed.com/jars/[organisation]/[module].[ext]"
+	}
 }
 dependencies {
 	deobfCompile 'mezz.jei:jei_1.12.2:4.8.4.130'
 
 	deobfCompile 'com.elytradev:fruitphone:1.12.2-2.81'
 	deobfCompile 'com.elytradev:probedataproviderapi:MC1.12_ver1.1.1'
+
+	compile 'baubles:Baubles-1.12-1.5.1-api'
 }
 }
