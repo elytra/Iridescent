@@ -24,7 +24,6 @@ public class BlockObelisk extends Block {
 	
 	public BlockObelisk(Material materialIn, MapColor mapColorIn) {
 		super(materialIn, mapColorIn);
-		setSoundType(new SoundType(1, 1, ModuleObelisk.HOLLOWHIT, ModuleObelisk.HOLLOWHIT, ModuleObelisk.HOLLOWHIT, ModuleObelisk.HOLLOWHIT, ModuleObelisk.HOLLOWHIT));
 	}
 	
 	@Override
@@ -81,6 +80,11 @@ public class BlockObelisk extends Block {
 	@Override
 	public int getMetaFromState(IBlockState state) {
 		return state.getValue(CONTROLLER) ? 1 : 0;
+	}
+	
+	@Override
+	public Block setSoundType(SoundType sound) {
+		return super.setSoundType(sound);
 	}
 	
 }

@@ -9,6 +9,7 @@ import com.elytradev.iridescent.module.Module;
 import com.google.common.collect.ImmutableSet;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer.SleepResult;
@@ -48,7 +49,7 @@ public class ModuleObelisk extends Module {
 		return ImmutableSet.of(Goal.ENCOURAGE_INFRASTRUCTURE, Goal.BE_UNIQUE);
 	}
 	
-	public static Block OBELISK_BLOCK;
+	public static BlockObelisk OBELISK_BLOCK;
 	public static SoundEvent PULSATING;
 	public static SoundEvent ATTUNE;
 	public static SoundEvent HOLLOWHIT;
@@ -62,12 +63,12 @@ public class ModuleObelisk extends Module {
 	
 	@SubscribeEvent
 	public void onRegisterBlocks(RegistryEvent.Register<Block> e) {
-		e.getRegistry().register(OBELISK_BLOCK = new BlockObelisk(Material.ROCK, MapColor.BLACK)
+		e.getRegistry().register(OBELISK_BLOCK = (BlockObelisk)(new BlockObelisk(Material.ROCK, MapColor.BLACK)
 				.setLightLevel(0.15f)
 				.setBlockUnbreakable()
 				.setResistance(4000000)
 				.setUnlocalizedName("iridescent.obelisk_block")
-				.setRegistryName("obelisk_block"));
+				.setRegistryName("obelisk_block")));
 	}
 	
 	@SubscribeEvent
@@ -75,6 +76,8 @@ public class ModuleObelisk extends Module {
 		e.getRegistry().register(PULSATING = new SoundEvent(new ResourceLocation("iridescent", "pulsating")).setRegistryName("pulsating"));
 		e.getRegistry().register(ATTUNE = new SoundEvent(new ResourceLocation("iridescent", "attune")).setRegistryName("attune"));
 		e.getRegistry().register(HOLLOWHIT = new SoundEvent(new ResourceLocation("iridescent", "hollowhit")).setRegistryName("hollowhit"));
+		
+		OBELISK_BLOCK.setSoundType(new SoundType(1, 1, HOLLOWHIT, HOLLOWHIT, HOLLOWHIT, HOLLOWHIT, HOLLOWHIT));
 	}
 	
 	@SubscribeEvent

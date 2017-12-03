@@ -27,7 +27,7 @@ public class TileEntityObelisk extends TileEntity {
 	
 	@Override
 	public AxisAlignedBB getRenderBoundingBox() {
-		return super.getRenderBoundingBox().expand(5, 5, 5);
+		return super.getRenderBoundingBox().grow(5);
 	}
 	
 }
