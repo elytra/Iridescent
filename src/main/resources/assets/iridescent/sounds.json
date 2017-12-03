@@ -1,0 +1,54 @@
+{
+	"sizzle": {
+		"category": "neutral",
+		"sounds": [
+			"iridescent:sizzle"
+		],
+		"subtitle": "subtitles.iridescent.sizzle"
+	},
+	"pulsating": {
+		"category": "ambient",
+		"sounds": [
+			{
+				"name": "iridescent:pulsating",
+				"stream": true
+			}
+		]
+	},
+	"spirit": {
+		"category": "ambient",
+		"sounds": [
+			{
+				"name": "iridescent:spirit",
+				"stream": true
+			}
+		]
+	},
+	"attune": {
+		"category": "player",
+		"sounds": [
+			"iridescent:attune1",
+			"iridescent:attune2",
+			"iridescent:attune3"
+		]
+	},
+	"dispel": {
+		"category": "player",
+		"sounds": [
+			"iridescent:dispel"
+		]
+	},
+	"hollowhit": {
+		"category": "block",
+		"sounds": [
+			"iridescent:hollowhit1",
+			"iridescent:hollowhit2",
+			"iridescent:hollowhit3",
+			"iridescent:hollowhit4",
+			"iridescent:hollowhit5",
+			"iridescent:hollowhit6",
+			"iridescent:hollowhit7",
+			"iridescent:hollowhit8"
+		]
+	}
+}

@@ -1,0 +1,54 @@
+tile.iridescent.chair.name=Comfy Chair
+tile.iridescent.waypoint.name=Waypoint
+
+item.iridescent.dyed_diamond_sword=Dyemond Sword
+item.iridescent.dyed_diamond_pickaxe=Dyemond Pickaxe
+item.iridescent.spectral_axe.name=Spectral Axe
+item.iridescent.spectral_axe.hint=§5It's all in your head
+
+death.attack.iridescent.sizzle=%1$s couldn't stop sizzling
+
+subtitles.iridescent.sizzle=Flesh sizzles
+
+effect.iridescent.pale=Pale
+effect.iridescent.resurrection_sickness=Rez Sickness
+
+iridescent.bedsAreDisabled=§6§lDisabled. §rCrafting ingredient only.
+iridescent.findObelisks=Find Obelisks in the world to set your spawn.
+
+iridescent.startLounging=%s is now lounging. (%d%%)
+iridescent.stopLounging=%s is no longer lounging. (%d%%)
+
+iridescent.tooDangerous=It's too dangerous to lounge here!
+
+achievement.mineWood=By Any Means Necessary
+
+iridescent.yourGrave=Your Grave
+iridescent.othersGrave=%s's Grave
+
+iridescent.attackToEquip=§e%s§r to displace inventory
+iridescent.rightClickToEquip=§e%s§r to just pick up
+
+iridescent.sneakRightClickToTakeOtherGrave=§e%s+%s§r to pick up
+
+iridescent.graveEmpty=Your grave wasn't spawned, as your inventory was empty
+
+iridescent.waypointShapeChanged=Waypoint shape changed to %s
+
+iridescent.waypoint.shape.solid.diamond=Solid Diamond
+iridescent.waypoint.shape.solid.circle=Solid Circle
+iridescent.waypoint.shape.solid.heart=Solid Heart
+iridescent.waypoint.shape.solid.club=Solid Club
+iridescent.waypoint.shape.solid.triangle=Solid Triangle
+iridescent.waypoint.shape.solid.square=Solid Square
+iridescent.waypoint.shape.solid.plus=Solid Plus
+iridescent.waypoint.shape.solid.cross=Solid Cross
+
+iridescent.waypoint.shape.hollow.diamond=Hollow Diamond
+iridescent.waypoint.shape.hollow.circle=Hollow Circle
+iridescent.waypoint.shape.hollow.heart=Hollow Heart
+iridescent.waypoint.shape.hollow.club=Hollow Club
+iridescent.waypoint.shape.hollow.triangle=Hollow Triangle
+iridescent.waypoint.shape.hollow.square=Hollow Square
+iridescent.waypoint.shape.hollow.plus=Hollow Plus
+iridescent.waypoint.shape.hollow.cross=Hollow Cross
