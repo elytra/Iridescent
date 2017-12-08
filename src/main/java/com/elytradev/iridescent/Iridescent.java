@@ -1,29 +1,37 @@
 package com.elytradev.iridescent;
 
-import java.lang.reflect.Modifier;
+import java.io.File;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.elytradev.concrete.network.NetworkContext;
 import com.elytradev.iridescent.module.Module;
 import com.elytradev.iridescent.module.ModuleClient;
+import com.elytradev.iridescent.module.chair.ModuleChair;
+import com.elytradev.iridescent.module.chair.client.ModuleChairClient;
+import com.elytradev.iridescent.module.clearwater.ModuleClearWater;
+import com.elytradev.iridescent.module.instantpickup.ModuleInstantPickup;
+import com.elytradev.iridescent.module.obelisk.ModuleObelisk;
+import com.elytradev.iridescent.module.obelisk.client.ModuleObeliskClient;
+import com.elytradev.iridescent.module.pale.ModulePale;
+import com.elytradev.iridescent.module.resizehelper.ModuleResizeHelper;
+import com.elytradev.iridescent.module.spiritgraves.ModuleSpiritGraves;
+import com.elytradev.iridescent.module.spiritgraves.client.ModuleSpiritGravesClient;
+import com.elytradev.iridescent.module.stoned.ModuleStoned;
+import com.elytradev.iridescent.module.stoned.ModuleStonedClient;
 import com.google.common.base.Predicates;
 import com.google.common.collect.ComparisonChain;
 import com.google.common.collect.Lists;
-import com.google.common.reflect.ClassPath;
-import com.google.common.reflect.ClassPath.ClassInfo;
-
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.play.server.SPacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.WorldServer;
 import net.minecraft.world.chunk.Chunk;
+import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.MetadataCollection;
 import net.minecraftforge.fml.common.Mod;
@@ -71,34 +79,46 @@ public class Iridescent {
 	
 	@EventHandler
 	public void onConstructing(FMLConstructionEvent e) throws Exception {
-		Set<ClassInfo> info = ClassPath.from(getClass().getClassLoader()).getTopLevelClassesRecursive("com.elytradev.iridescent.module");
-		ProgressBar bar = ProgressManager.push("Discovering modules", info.size());
-		for (ClassInfo ci : info) {
-			if (!e.getSide().isClient() && ci.getName().endsWith("Client")) {
-				bar.step(ci.getName());
-				continue;
-			}
-			if (!ci.getName().contains("Module")) {
-				bar.step(ci.getName());
-				continue;
-			}
-			Class<?> clazz = ci.load();
-			bar.step(clazz);
-			if (Modifier.isAbstract(clazz.getModifiers())) continue;
-			if (clazz.getSuperclass() == Module.class ||
-					(e.getSide().isClient() && clazz.getSuperclass() == ModuleClient.class)) {
-				Module m = (Module)clazz.newInstance();
-				modules.add(m);
-			}
+		boolean client = e.getSide().isClient();
+		Configuration c = new Configuration(new File("config/iridescent.cfg"));
+		if (c.getBoolean("chair", "modules", true, "")) {
+			modules.add(new ModuleChair());
+			if (client) modules.add(new ModuleChairClient());
 		}
+		if (c.getBoolean("clearwater", "modules", true, "")) {
+			modules.add(new ModuleClearWater());
+		}
+		if (c.getBoolean("instantpickup", "modules", true, "")) {
+			modules.add(new ModuleInstantPickup());
+		}
+		if (c.getBoolean("obelisk", "modules", true, "")) {
+			modules.add(new ModuleObelisk());
+			if (client) modules.add(new ModuleObeliskClient());
+		}
+		if (c.getBoolean("pale", "modules", true, "")) {
+			modules.add(new ModulePale());
+		}
+		if (c.getBoolean("resizehelper", "modules", true, "")) {
+			if (client) modules.add(new ModuleResizeHelper());
+		}
+		if (c.getBoolean("spiritgraves", "modules", true, "")) {
+			modules.add(new ModuleSpiritGraves());
+			if (client) modules.add(new ModuleSpiritGravesClient());
+		}
+		if (c.getBoolean("stoned", "modules", true, "")) {
+			modules.add(new ModuleStoned());
+			if (client) modules.add(new ModuleStonedClient());
+		}
+		c.save();
+		
+		
 		Collections.sort(modules, (a, b) -> ComparisonChain.start()
 				.compare(a.getWeight(), b.getWeight())
 				.compare(a.getName(), b.getName())
 				.result());
 		for (Module m : modules) {
-			log.info("Discovered {}module {}", m instanceof ModuleClient ? "client " : "", m.getName());
+			log.info("Enabling {}module {}", m instanceof ModuleClient ? "client " : "", m.getName());
 		}
-		ProgressManager.pop(bar);
 		MetadataCollection mc = new MetadataCollection() {
 			@Override
 			public ModMetadata getMetadataForId(String modId, Map<String, Object> extraData) {

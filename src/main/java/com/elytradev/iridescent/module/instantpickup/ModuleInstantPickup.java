@@ -17,6 +17,7 @@ import net.minecraft.util.EntityDamageSource;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.common.util.FakePlayer;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.event.entity.living.LivingExperienceDropEvent;
 import net.minecraftforge.event.world.BlockEvent;
@@ -53,6 +54,7 @@ public class ModuleInstantPickup extends Module {
 		if (!e.getEntityLiving().world.getGameRules().getBoolean("doMobLoot")) return;
 		if (e.getEntityLiving().world.isRemote) return;
 		if (e.getAttackingPlayer() == null) return;
+		if (e.getAttackingPlayer() instanceof FakePlayer) return;
 		World world = e.getEntityLiving().world;
 		int amount = e.getDroppedExperience();
 		int oldCooldown = e.getAttackingPlayer().xpCooldown;
@@ -82,6 +84,7 @@ public class ModuleInstantPickup extends Module {
 			EntityDamageSource eds = (EntityDamageSource)e.getSource();
 			if (eds.getTrueSource() instanceof EntityPlayer) {
 				EntityPlayer ep = (EntityPlayer)eds.getTrueSource();
+				if (ep instanceof FakePlayer) return;
 				Iterator<EntityItem> iter = e.getDrops().iterator();
 				while (iter.hasNext()) {
 					EntityItem ei = iter.next();
@@ -105,6 +108,7 @@ public class ModuleInstantPickup extends Module {
 		if (!e.getWorld().getGameRules().getBoolean("doTileDrops")) return;
 		if (e.getWorld().isRemote) return;
 		if (e.getPlayer() == null) return;
+		if (e.getPlayer() instanceof FakePlayer) return;
 		BlockPos pos = e.getPos();
 		int amount = e.getExpToDrop();
 		int oldCooldown = e.getPlayer().xpCooldown;
@@ -131,6 +135,7 @@ public class ModuleInstantPickup extends Module {
 		if (!e.getWorld().getGameRules().getBoolean("doTileDrops")) return;
 		if (e.getWorld().isRemote) return;
 		if (e.getHarvester() == null) return;
+		if (e.getHarvester() instanceof FakePlayer) return;
 		BlockPos pos = e.getPos();
 		for (ItemStack is : e.getDrops()) {
 			if (is.isEmpty()) continue;

@@ -11,9 +11,6 @@ need to ask to use them. See the [LICENSE file](LICENSE) for more details.
 
 ## Modules
 
-**Note**: there's currently no way to disable modules other than just removing
-them from the source code. A way will be added Soon™.
-
 ### Chair
 Adds a Comfy Chair which makes time go very fast if everyone online is sitting
 in one.
@@ -25,10 +22,6 @@ underwater, which is a problem other clear water tweaks have.
 ### Instant Pickup
 Makes items and experience enter your inventory instantly when killing mobs or
 breaking blocks, if you have space for it.
-
-### No Debug
-Replaces the debug screen with a better looking, and less informative, version.
-Doesn't do that in creative.
 
 ### Obelisk
 Disables beds and adds Obelisks to the world that let you set your spawn.
