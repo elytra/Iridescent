@@ -76,9 +76,9 @@ public class ModuleSpiritGravesClient extends ModuleClient {
 			oldGamma = Minecraft.getMinecraft().gameSettings.gammaSetting;
 			stareTicks = stareTicksInt+(reverseTicks ? e.renderTickTime*-2 : e.renderTickTime);
 			float gamma = oldGamma - (oldGamma+2)*Math.min(1, stareTicks/40f);
-			Minecraft.getMinecraft().gameSettings.gammaSetting = gamma;
+			//Minecraft.getMinecraft().gameSettings.gammaSetting = gamma;
 		} else {
-			Minecraft.getMinecraft().gameSettings.gammaSetting = oldGamma;
+			//Minecraft.getMinecraft().gameSettings.gammaSetting = oldGamma;
 		}
 	}
 	
