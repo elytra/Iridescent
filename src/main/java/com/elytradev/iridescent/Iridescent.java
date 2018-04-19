@@ -10,7 +10,6 @@ import org.apache.logging.log4j.Logger;
 import com.elytradev.concrete.network.NetworkContext;
 import com.elytradev.iridescent.module.Module;
 import com.elytradev.iridescent.module.ModuleClient;
-import com.elytradev.iridescent.module.betterguiscale.ModuleBetterGuiScale;
 import com.elytradev.iridescent.module.chair.ModuleChair;
 import com.elytradev.iridescent.module.chair.client.ModuleChairClient;
 import com.elytradev.iridescent.module.clearwater.ModuleClearWater;
@@ -109,9 +108,6 @@ public class Iridescent {
 		if (c.getBoolean("stoned", "modules", true, "")) {
 			modules.add(new ModuleStoned());
 			if (client) modules.add(new ModuleStonedClient());
-		}
-		if (c.getBoolean("betterguiscale", "modules", true, "")) {
-			if (client) modules.add(new ModuleBetterGuiScale());
 		}
 		c.save();
 		

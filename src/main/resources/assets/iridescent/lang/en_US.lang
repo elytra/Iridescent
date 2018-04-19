@@ -52,9 +52,3 @@ iridescent.waypoint.shape.hollow.triangle=Hollow Triangle
 iridescent.waypoint.shape.hollow.square=Hollow Square
 iridescent.waypoint.shape.hollow.plus=Hollow Plus
 iridescent.waypoint.shape.hollow.cross=Hollow Cross
-
-options.iridescent.scale=Scale Settings...
-options.iridescent.scaleTitle=Scale Settings
-options.iridescent.scaleSubtitle=(From Iridescent)
-options.iridescent.dirty=Changes will be saved when you click Done
-options.iridescent.tooBig=The window is only large enough for %sx scale
