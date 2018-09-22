@@ -60,6 +60,12 @@ public class ModuleStonedClient extends ModuleClient {
 		ModelLoader.setCustomModelResourceLocation(ModuleStoned.DIORITE_PICKAXE, 0, new ModelResourceLocation("iridescent:diorite_pickaxe#inventory"));
 		ModelLoader.setCustomModelResourceLocation(ModuleStoned.DIORITE_AXE, 0, new ModelResourceLocation("iridescent:diorite_axe#inventory"));
 		ModelLoader.setCustomModelResourceLocation(ModuleStoned.DIORITE_SHOVEL, 0, new ModelResourceLocation("iridescent:diorite_shovel#inventory"));
+		
+		ModelLoader.setCustomModelResourceLocation(ModuleStoned.FLINT_SWORD, 0, new ModelResourceLocation("iridescent:flint_sword#inventory"));
+		ModelLoader.setCustomModelResourceLocation(ModuleStoned.FLINT_HOE, 0, new ModelResourceLocation("iridescent:flint_hoe#inventory"));
+		ModelLoader.setCustomModelResourceLocation(ModuleStoned.FLINT_PICKAXE, 0, new ModelResourceLocation("iridescent:flint_pickaxe#inventory"));
+		ModelLoader.setCustomModelResourceLocation(ModuleStoned.FLINT_AXE, 0, new ModelResourceLocation("iridescent:flint_axe#inventory"));
+		ModelLoader.setCustomModelResourceLocation(ModuleStoned.FLINT_SHOVEL, 0, new ModelResourceLocation("iridescent:flint_shovel#inventory"));
 	}
 
 }

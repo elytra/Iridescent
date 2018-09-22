@@ -68,6 +68,12 @@ public class ModuleStoned extends Module {
 	public static ItemAxe DIORITE_AXE;
 	public static ItemSpade DIORITE_SHOVEL;
 	
+	public static ItemSword FLINT_SWORD;
+	public static ItemHoe FLINT_HOE;
+	public static ItemPickaxe FLINT_PICKAXE;
+	public static ItemAxe FLINT_AXE;
+	public static ItemSpade FLINT_SHOVEL;
+	
 	@Override
 	public void onPreInit(FMLPreInitializationEvent e) {
 		OreDictionary.registerOre("cobblestone", new ItemStack(Blocks.STONE, 1, 1));
@@ -155,6 +161,22 @@ public class ModuleStoned extends Module {
 		e.getRegistry().register(DIORITE_SHOVEL = ((ItemSpade)new ItemSpade(ToolMaterial.STONE)
 				.setUnlocalizedName("shovelStone")
 				.setRegistryName("diorite_shovel")));
+		
+		e.getRegistry().register(FLINT_SWORD = ((ItemSword)new ItemSword(ToolMaterial.STONE)
+				.setUnlocalizedName("swordStone")
+				.setRegistryName("flint_sword")));
+		e.getRegistry().register(FLINT_HOE = ((ItemHoe)new ItemHoe(ToolMaterial.STONE)
+				.setUnlocalizedName("hoeStone")
+				.setRegistryName("flint_hoe")));
+		e.getRegistry().register(FLINT_PICKAXE = ((ItemPickaxe)new ItemPickaxe(ToolMaterial.STONE) {}
+				.setUnlocalizedName("pickaxeStone")
+				.setRegistryName("flint_pickaxe")));
+		e.getRegistry().register(FLINT_AXE = ((ItemAxe)new ItemAxe(ToolMaterial.STONE) {}
+				.setUnlocalizedName("hatchetStone")
+				.setRegistryName("flint_axe")));
+		e.getRegistry().register(FLINT_SHOVEL = ((ItemSpade)new ItemSpade(ToolMaterial.STONE)
+				.setUnlocalizedName("shovelStone")
+				.setRegistryName("flint_shovel")));
 	}
 	
 	@SubscribeEvent
@@ -397,6 +419,65 @@ public class ModuleStoned extends Module {
 				'#', diorite,
 				'/', "stickWood"
 				).setRegistryName("diorite_shovel"));
+		
+		
+		
+		e.getRegistry().register(new ShapedOreRecipe(null, FLINT_SWORD,
+				" # ",
+				" # ",
+				" / ",
+				
+				'#', Items.FLINT,
+				'/', "stickWood"
+				).setRegistryName("flint_sword"));
+		e.getRegistry().register(new ShapedOreRecipe(null, FLINT_HOE,
+				"##",
+				" /",
+				" /",
+				
+				'#', Items.FLINT,
+				'/', "stickWood"
+				).setRegistryName("flint_hoe"));
+		e.getRegistry().register(new ShapedOreRecipe(null, FLINT_HOE,
+				"##",
+				"/ ",
+				"/ ",
+				
+				'#', Items.FLINT,
+				'/', "stickWood"
+				).setRegistryName("flint_hoe_flipped"));
+		e.getRegistry().register(new ShapedOreRecipe(null, FLINT_PICKAXE,
+				"###",
+				" / ",
+				" / ",
+				
+				'#', Items.FLINT,
+				'/', "stickWood"
+				).setRegistryName("flint_pickaxe"));
+		e.getRegistry().register(new ShapedOreRecipe(null, FLINT_AXE,
+				"##",
+				"#/",
+				" /",
+				
+				'#', Items.FLINT,
+				'/', "stickWood"
+				).setRegistryName("flint_axe"));
+		e.getRegistry().register(new ShapedOreRecipe(null, FLINT_AXE,
+				"##",
+				"/#",
+				"/ ",
+				
+				'#', Items.FLINT,
+				'/', "stickWood"
+				).setRegistryName("flint_axe_flipped"));
+		e.getRegistry().register(new ShapedOreRecipe(null, FLINT_SHOVEL,
+				"#",
+				"/",
+				"/",
+				
+				'#', Items.FLINT,
+				'/', "stickWood"
+				).setRegistryName("flint_shovel"));
 	}
 
 }
