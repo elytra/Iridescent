@@ -1,6 +1,6 @@
 # Iridescent
 
-[>> Downloads <<](https://github.com/elytra/DynamicDynamos/releases)
+[>> Downloads <<](https://ci.elytradev.com/job/elytra/job/Iridescent/job/1.12.2/)
 
 *Assorted fun features for the whole family*
 
